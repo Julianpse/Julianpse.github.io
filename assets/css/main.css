@@ -2010,7 +2010,7 @@
 			text-align: center;
 		}
 
-			/* .image.thumb:after {
+			.image.thumb:after {
 				-moz-transition: opacity 0.2s ease-in-out;
 				-webkit-transition: opacity 0.2s ease-in-out;
 				-ms-transition: opacity 0.2s ease-in-out;
@@ -2031,7 +2031,7 @@
 				text-align: center;
 				text-decoration: none;
 				top: 50%;
-				white-space: nowrap; */
+				white-space: nowrap;
 			}
 
 			.image.thumb:hover:after {
