@@ -117,7 +117,8 @@
 						<p>Have a project you would like to discuss, want to talk tech, or just want to say hello, feel free to drop a line!</p>
 						<div class="row">
 							<div class="8u 12u$(small)">
-								<form method="POST" action="https://formspree.io/julianpse@gmail.com">
+								<form method="POST"  action="https://www.enformed.io/4dhnon7m" id="contactForm">
+									<input type="hidden" name="*redirect" value="https://julianse.com" />
 									<div class="row uniform 50%">
 										<div class="6u 12u$(xsmall)"><input type="text" name="name" id="name" placeholder="Name" /></div>
 										<div class="6u$ 12u$(xsmall)"><input type="email" name="email" id="email" placeholder="Email" /></div>
@@ -493,6 +494,28 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 			<script src="assets/js/util.js"></script>
 			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
 			<script src="assets/js/main.js"></script>
+			<script>
+			$(document).ready(function(){
+				
+				var form = $('#contactForm')
+				var form_data = $('#name, #email, #message');
+
+				form.submit(function(e){
+					e.preventDefault();
+					$.ajax({
+						method: 'POST',
+						url: 'https://www.enformed.io/4dhnon7m/',
+						dataType: 'json',
+						accepts: 'application/json',
+						data: form_data,
+						success: (data) => console.log(data),
+						error: (err) => console.log(err)
+					});
+					alert(`Thank you, your message has been sent!`);
+				})
+			});
+
+			</script>
 
 	</body>
 </html>
