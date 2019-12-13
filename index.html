@@ -192,6 +192,14 @@
 			submitHandler: function(form) {
 				form.submit();
 				var form_data = $('#name, #email, #message');
+				var response = grecaptcha.getResponse();
+
+				if(response.length == 0) {
+					//recaptcha not verified
+					alert('please verify you are human!');
+					e.preventDefault();
+					return false;
+				}
 				$.ajax({
 					method: 'POST',
 					url: 'https://www.enformed.io/4dhnon7m/',
@@ -204,17 +212,6 @@
 				alert('Thank you, your message has been sent!')
 			}
 		});
-
-		document.getElementById("contactForm").addEventListener("submit", function(e){
-			var response = grecaptcha.getResponse();
-			if(response.length == 0) {
-				//recaptcha not verified
-				alert('please verify you are human!');
-				e.preventDefault();
-				return false;
-			}
-			//captcha verified
-		})
 	</script>
 
 </body>
