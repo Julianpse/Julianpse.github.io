@@ -166,9 +166,6 @@
 	<script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.17.0/dist/jquery.validate.min.js"></script>
 	<script>
 		var form = $('#contactForm')
-		var submit = $('#submitButton')
-		
-		submit.hide()
 
 		$("#contactForm").validate({
 			rules: {
@@ -204,7 +201,6 @@
 					return false;
 				}
 					//recaptcha verified
-					submit.show()
 					$.ajax({
 						method: 'POST',
 						url: 'https://www.enformed.io/4dhnon7m/',
