@@ -16,6 +16,8 @@
 	<link rel="icon" href="images/favicon.ico" type="image/x-icon" />
 	<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
 	<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+
+	<script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
 <style>
 	.iconHeadings {
@@ -125,27 +127,14 @@
 							<div class="12u$"><textarea name="message" id="message" placeholder="Message" rows="4"></textarea></div>
 						</div>
 						<br>
+						<div class="g-recaptcha" data-sitekey="6LeWrccUAAAAAOTNjv3-AuZjXhybQ19IXaPCsgv6"></div>
+						<br>
 						<ul class="actions">
 							<li><input id="submitButton" type="submit" value="Send Message" /></li>
 						</ul>
 					</form>
 				</div>
 				<div class="4u$ 12u$(small)">
-					<!-- <ul class="labeled-icons">
-									<li>
-										<h3 class="icon fa-home"><span class="label">Address</span></h3>
-										Nashville, TX<br />
-										United States
-									</li>
-									<li>
-										<h3 class="icon fa-mobile"><span class="label">Phone</span></h3>
-										000-000-0000
-									</li>
-									<li>
-										<h3 class="icon fa-envelope-o"><span class="label">Email</span></h3>
-										<a href="#">hello@julianse.com</a>
-									</li>
-								</ul> -->
 				</div>
 			</div>
 		</section>
@@ -215,6 +204,17 @@
 				alert('Thank you, your message has been sent!')
 			}
 		});
+
+		document.getElementById("contactForm").addEventListener("submit", function(e){
+			var response = grecaptcha.getResponse();
+			if(response.length == 0) {
+				//recaptcha not verified
+				alert('please verify you are human!');
+				e.preventDefault();
+				return false;
+			}
+			//captcha verified
+		})
 	</script>
 
 </body>
